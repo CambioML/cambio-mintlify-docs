@@ -61,9 +61,16 @@
     {
       "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/endpoint/extract",
+        "api-reference/endpoint/query",
+        "api-reference/endpoint/upload",
+        "api-reference/endpoint/fetch"
+      ]
+    },
+    {
+      "group": "Full Example",
+      "pages": [
+        "api-reference/example"
       ]
     }
   ],
