@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "https://api.cambio-ai.com"
+      "url": "https://public-api.cambio-ai.com"
     }
   ],
   "security": [
