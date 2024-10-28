@@ -74,6 +74,7 @@
       "group": "Endpoint Examples",
       "pages": [
         "api-reference/endpoint/extract",
+        "api-reference/endpoint/json-extract",
         "api-reference/endpoint/query",
         "api-reference/endpoint/upload",
         "api-reference/endpoint/fetch"
