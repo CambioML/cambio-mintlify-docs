@@ -67,17 +67,24 @@
     {
       "group": "API Documentation",
       "pages": [
-        "api-reference/introduction"
+        "api-reference/introduction",
+        "api-reference/sync-endpoints",
+        "api-reference/async-endpoints"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Sync Endpoint Examples",
       "pages": [
         "api-reference/endpoint/extract",
         "api-reference/endpoint/json-extract",
-        "api-reference/endpoint/query",
-        "api-reference/endpoint/upload",
-        "api-reference/endpoint/fetch"
+        "api-reference/endpoint/query"
+      ]
+    },
+    {
+      "group": "Async Endpoint Examples",
+      "pages": [
+        "api-reference/endpoint/async-upload",
+        "api-reference/endpoint/async-fetch"
       ]
     },
     {
