@@ -28,6 +28,10 @@
   },
   "tabs": [
     {
+      "name": "SDK Reference",
+      "url": "sdk-reference"
+    },
+    {
       "name": "API Reference",
       "url": "api-reference"
     }
@@ -50,6 +54,14 @@
       "pages": [
         "introduction",
         "quickstart"
+      ]
+    },
+    {
+      "group": "AnyParser SDK Reference",
+      "pages": [
+        "sdk-reference/introduction",
+        "sdk-reference/full-content-parse",
+        "sdk-reference/key-value-extraction"
       ]
     },
     {

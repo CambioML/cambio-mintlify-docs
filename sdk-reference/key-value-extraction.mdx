@@ -1,0 +1,74 @@
+---
+title: 'Key-Value Extraction'
+description: 'Extract key-value information from your documents'
+---
+
+## Overview
+Using `AnyParser`, you can extract key-value information from your documents.
+
+## Setup
+Refer to the [Quickstart guide](/quickstart/#setup) to install the AnyParser SDK and get your api key.
+
+First, set up your `AnyParser` client.
+
+```python anyparser_key_value.py
+from any_parser import AnyParser
+
+ap = AnyParser(api_key="...")
+```
+
+Next, you'll need to create your `extract_instruction`. This is a dictionary of the form `{"key": "key description"}` where the key is the name of the key to extract and the key description is a description of that key.
+```python anyparser_key_value.py
+extract_instruction = {
+                "social_security_number": "the social security number of the employee",
+                "ein": "the employer identification number",
+            }
+```
+Finally, use the `extract_key_value` method, passing in the following:
+- `file_path` (str): the path to the local file
+- `extract_instruction` (dict): keys to extract and their descriptions
+
+```python anyparser_key_value.py
+key_value_result, total_time = ap.extract_key_value(local_file_path, extract_instruction)
+```
+
+This will return two things:
+- `key_value_result` (dict): Dictionary with the keys specified in `extract_instruction`, and the values extracted from the document
+- `total_time` (str): the time elapsed in seconds
+
+### Full Code
+```python anyparser_key_value.py
+from any_parser import AnyParser
+
+ap = AnyParser(api_key="...")
+
+local_file_path = "/path/to/your/file"
+extract_instruction = {
+                "social_security_number": "the social security number of the employee",
+                "ein": "the employer identification number",
+            }
+
+key_value_result, total_time = ap.extract_key_value(local_file_path, extract_instruction)
+```
+
+## Full Notebook Examples
+
+Check out these notebooks for more detailed examples of using both sync and async AnyParser.
+
+<CardGroup cols={2}>
+  <Card
+    title="AnyParser Sync Example"
+    icon="bolt-lightning"
+    href="https://github.com/CambioML/any-parser/blob/main/examples/pdf_to_key_value.ipynb"
+  >
+    Extracting key-values from a fake W2 document.
+  </Card>
+  <Card
+    title="AnyParser Async Example"
+    icon="rotate"
+    href="https://github.com/CambioML/any-parser/blob/main/examples/async_pdf_to_key_value.ipynb"
+  >
+    Extracting key-values from a fake W2 document.
+  </Card>
+</CardGroup>
+
