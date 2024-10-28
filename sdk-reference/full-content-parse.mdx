@@ -29,9 +29,39 @@ file_id = ap.async_extract(file_path="./data/test.pdf")
 md = ap.async_fetch(file_id=file_id)
 ```
 
+## Choose a Model (`base` or `pro`)
+
+The `base` model is a general-purpose model that is optimized for a wide range of document types. The `pro` model is a more advanced model that is optimized for more complex documents.
+
+
+### BASE Model (default) Example
+
+To use the `BASE` model, simply import the `ModelType` and pass the `model` parameter as shown below.
+```python
+from any_parser import ModelType
+
+# start the extraction request
+file_id = ap.async_extract(example_local_file,  model=ModelType.BASE)
+# fetch results (5s polling up to 60s)
+markdown_string = ap.async_fetch(file_id, sync=True, sync_timeout=60, sync_interval=5)
+```
+
+### PRO Model Example
+To use the `PRO` model, simply import the `ModelType` and pass the `model` parameter as shown below.
+```python
+from any_parser import ModelType
+
+# start the extraction request
+file_id = ap.async_extract(example_local_file,  model=ModelType.PRO)
+# fetch results (5s polling up to 60s)
+markdown_string = ap.async_fetch(file_id, sync=True, sync_timeout=60, sync_interval=5)
+```
+
 ## Full Notebook Examples
 
-Check out these notebooks for more detailed examples of using AnyParser.
+Check out these notebooks for more detailed examples of using AnyParser BASE and PRO models:
+- [AnyParser Sync API](https://github.com/CambioML/any-parser/blob/main/examples/pdf_to_markdown.ipynb): Parse 1-2 pages short documents (which will time out after 30 seconds).
+- [AnyParser Async API](https://github.com/CambioML/any-parser/blob/main/examples/async_pdf_to_markdown.ipynb): Parse longer documents (which may take longer than 30 seconds).
 
 <CardGroup cols={2}>
   <Card
