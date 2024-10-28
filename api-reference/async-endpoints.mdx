@@ -1,0 +1,32 @@
+---
+title: 'Async API Endpoints'
+description: 'API Reference for the asynchronous functions of the AnyParser API'
+---
+
+## Overview
+The `AnyParser` API has asynchronous endpoints for its parsing and extraction features. These are asynchronous endpoints that will return a file ID. You can use this file ID to fetch the results of the extraction at a later time. Consider using if you have longer or more complex files. These async endpoints have a timeout of 180 seconds.
+
+There are 2 async endpoints:
+| Endpoint        | Description                                       |
+|-----------------|---------------------------------------------------|
+| [/async/upload](/api-reference/endpoint/upload)      | Upload the file to process and the process type. Returns the file ID. |
+| [/async/fetch](/api-reference/endpoint/fetch)  | Poll the results for a file ID.     |
+
+Generally, for all async requests, you would upload a file via the `/async/upload` endpoint, get its file_id, and then poll the `/async/fetch` endpoint to get the result.
+
+## /async/upload
+This endpoint is used to upload a file with a specified `process_type` and get a file ID.
+
+You can specify the following for the `process_type`:
+| process_type        | Description                                       |
+|-----------------|---------------------------------------------------|
+| `file` | This is the Default. It parses the full content from a file. This has the same functionality as the [full-content-parse](/sdk-reference/full-content-parse) in the SDK |
+| `json` | This extracts key-value pairs from the document. This has the same functionality as the [key-value extraction](/sdk-reference/key-value-extraction) in the SDK |
+
+For more details on how to call this endpoint see the [Async Upload Endpoint Example](/api-reference/endpoint/async-upload).
+
+## /async/fetch
+Once you have retrieved the `file_id` from the `/async/upload` endpoint, you then send that `file_id` to the `/async/fetch` endpoint to retrieve the result.
+
+For more details on how to call this endpoint see the [Async Upload Endpoint Example](/api-reference/endpoint/async-fetch).
+

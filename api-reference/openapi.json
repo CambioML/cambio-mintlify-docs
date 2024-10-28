@@ -13,9 +13,18 @@
       "url": "https://public-api.cambio-ai.com"
     }
   ],
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
+      }
+    }
+  },
   "security": [
     {
-      "bearerAuth": []
+      "apiKeyAuth": []
     }
   ],
   "paths": {
@@ -210,7 +219,23 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {}
+                "properties": {
+                  "file_name": {
+                    "type": "string",
+                    "description": "The name of the file to be uploaded."
+                  },
+                  "process_type": {
+                    "type": "string",
+                    "enum": ["file", "table", "json", "file_refined_quick", "extract_pii"],
+                    "description": "The type of processing to apply to the uploaded file. Default is `file`."
+                  },
+                  "extract_args": {
+                    "type": "object",
+                    "description": "Arguments for extraction processing.",
+                    "additionalProperties": true
+                  }
+                },
+                "required": ["file_name", "process_type"]
               }
             }
           }
