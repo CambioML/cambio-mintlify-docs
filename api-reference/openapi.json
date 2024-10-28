@@ -83,6 +83,85 @@
         ]
       }
     },
+    "/json/extract": {
+      "post": {
+        "summary": "Extract Key-value pairs from a file",
+        "description": "This API endpoint extracts key-value pairs from the uploaded file and returns the content in json format.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file_content": {
+                    "type": "string",
+                    "description": "The base64 encoded content of the file to be parsed."
+                  },
+                  "file_type": {
+                    "type": "string",
+                    "description": "The type of the file. Supported values are 'pdf' and 'docx'.",
+                    "enum": ["pdf", "docx"]
+                  },
+                  "instruction_args": {
+                    "type": "object",
+                    "description": "The key-value extraction instructions.",
+                    "properties": {
+                      "extract_instruction": {
+                        "type": "object",
+                        "description": "Dictionary with the key as the names of the key to extract, and the value being a description of that key.",
+                        "additionalProperties": {
+                          "type": "string",
+                          "description": "A user-defined key name and description of the key."
+                        }
+                      }
+                    },
+                    "required": ["extract_instruction"]
+                  }
+                },
+                "required": ["file_content", "file_type", "instruction_args"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Key-value extracted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "json": {
+                      "type": "object",
+                      "description": "The extracted key-value pairs in json format."
+                    },
+                    "pageCount": {
+                      "type": "integer",
+                      "description": "The number of pages processed."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded. Only 1 request per second is allowed."
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Your API key."
+          }
+        ]
+      }
+    },
     "/query": {
       "get": {
         "summary": "Query the status of the API",
