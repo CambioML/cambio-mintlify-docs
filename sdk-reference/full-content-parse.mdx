@@ -1,0 +1,51 @@
+---
+title: 'Full Content Parsing'
+description: 'Parse the full content from your documents into markdown format.'
+---
+
+## Overview
+Using `AnyParser`, you can parse the full content from your documents into markdown.
+
+## Setup
+Refer to the [Quickstart guide](/quickstart/#setup) to install the AnyParser SDK and get your api key.
+
+Next, set up your `AnyParser` sync or async client.
+
+```python anyparser_sync.py
+from any_parser import AnyParser
+
+ap = AnyParser(api_key="...")
+
+md_output, total_time = ap.extract(file_path="./data/test.pdf")
+```
+
+```python anyparser_async.py
+from any_parser import AnyParser
+
+ap = AnyParser(api_key="...")
+
+file_id = ap.async_extract(file_path="./data/test.pdf")
+
+md = ap.async_fetch(file_id=file_id)
+```
+
+## Full Notebook Examples
+
+Check out these notebooks for more detailed examples of using AnyParser.
+
+<CardGroup cols={2}>
+  <Card
+    title="AnyParser Sync Example"
+    icon="bolt-lightning"
+    href="https://github.com/CambioML/any-parser/blob/main/examples/pdf_to_markdown.ipynb"
+  >
+    Extracting content from a table of contents.
+  </Card>
+  <Card
+    title="AnyParser Async Example"
+    icon="rotate"
+    href="https://github.com/CambioML/any-parser/blob/main/examples/async_pdf_to_markdown.ipynb"
+  >
+    Extracting content from a table of contents.
+  </Card>
+</CardGroup>
