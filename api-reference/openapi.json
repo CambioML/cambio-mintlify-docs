@@ -227,7 +227,7 @@
                   "process_type": {
                     "type": "string",
                     "enum": ["file", "table", "json", "file_refined_quick", "extract_pii"],
-                    "description": "The type of processing to apply to the uploaded file. Default is `file`, which will parse full content from the input file. `table` will extract tables from the input file. `json` will extract key-value pairs from the input file. `file_refined_quick` will parse the full content from the input file with a larger model. `extract_pii` will extract PII (personally identifiable information) from the input file."
+                    "description": "The type of processing to apply to the uploaded file. Default is `file`."
                   },
                   "extract_args": {
                     "type": "object",
