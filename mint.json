@@ -60,11 +60,11 @@
       "group": "AnyParser SDK Reference",
       "pages": [
         "sdk-reference/introduction",
-        "sdk-reference/full-content-parse",
-        "sdk-reference/key-value-extraction",
-        "sdk-reference/resume-key-value-extraction",
-        "sdk-reference/pii-extraction",
-        "sdk-reference/tables-extraction"
+        "sdk-reference/parse",
+        "sdk-reference/extract_key_value",
+        "sdk-reference/extract_resume_key_value",
+        "sdk-reference/extract_pii",
+        "sdk-reference/extract_tables"
       ]
     },
     {

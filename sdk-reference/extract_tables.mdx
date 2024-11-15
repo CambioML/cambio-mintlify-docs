@@ -1,18 +1,11 @@
 ---
-title: 'Extract PII'
-description: 'Extract Personally Identifiable Information (PII) information from your documents'
+title: 'Extract Tables'
+description: 'Extract tables from your documents'
 ---
 
 ## Overview
-Using `AnyParser`, you can extract PII information from your documents, including
+Using `AnyParser`, you can extract tables from your documents
 
-- Name
-- Phone Number
-- Address
-- Email Address
-- Linkedin URL
-- Github URL
-- Summary
 
 ## Setup
 Refer to the [Quickstart guide](/quickstart/#setup) to install the AnyParser SDK and get your api key.
@@ -28,24 +21,23 @@ ap = AnyParser(api_key="...")
 Then, use the `anyparser_pii` method, passing in the following:
 - `file_path` (str): the path to the local file
 
-```python anyparser_extract_pii.py
-pii_result, total_time = ap.extract_pii(local_file_path)
+```python anyparser_extract_tables.py
+table_result, total_time = ap.extract_tables(local_file_path)
 ```
 
 This will return two things:
-- `pii_result` (dict): Dictionary with the keys corresponding to PII types,
-and the values extracted from the document
+- `table_result` (str): Tables represented in HTML format
 - `total_time` (str): the time elapsed in seconds
 
 ### Full Code
-```python anyparser_extract_pii.py
+```python anyparser_extract_tables.py
 from any_parser import AnyParser
 
 ap = AnyParser(api_key="...")
 
 local_file_path = "/path/to/your/file"
 
-pii_result, total_time = ap.extract_pii(local_file_path)
+pii_result, total_time = ap.extract_tables(local_file_path)
 ```
 
 ## Full Notebook Examples
@@ -54,16 +46,16 @@ Check out these notebooks for more detailed examples of using both sync and asyn
 
 <CardGroup cols={2}>
   <Card
-    title="AnyParser Sync Example"
+    title="AnyParser Sync Extract Tables Example"
     icon="bolt-lightning"
-    href="https://github.com/CambioML/any-parser/blob/main/examples/pdf_to_key_value.ipynb"
+    href="https://github.com/CambioML/any-parser/blob/main/examples/extract_tables.ipynb"
   >
     Extracting key-values from a fake W2 document.
   </Card>
   <Card
-    title="AnyParser Async Example"
+    title="AnyParser Async Extract Tables Example"
     icon="rotate"
-    href="https://github.com/CambioML/any-parser/blob/main/examples/async_pdf_to_key_value.ipynb"
+    href="https://github.com/CambioML/any-parser/blob/main/examples/async_extract_tables.ipynb"
   >
     Extracting key-values from a fake W2 document.
   </Card>
