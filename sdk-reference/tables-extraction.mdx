@@ -1,0 +1,63 @@
+---
+title: 'Tables Extraction'
+description: 'Extract tables from your documents'
+---
+
+## Overview
+Using `AnyParser`, you can extract tables from your documents
+
+
+## Setup
+Refer to the [Quickstart guide](/quickstart/#setup) to install the AnyParser SDK and get your api key.
+
+First, set up your `AnyParser` client.
+
+```python anyparser_pii.py
+from any_parser import AnyParser
+
+ap = AnyParser(api_key="...")
+```
+
+Then, use the `anyparser_pii` method, passing in the following:
+- `file_path` (str): the path to the local file
+
+```python anyparser_extract_tables.py
+table_result, total_time = ap.extract_tables(local_file_path)
+```
+
+This will return two things:
+- `table_result` (str): Tables represented in HTML format
+- `total_time` (str): the time elapsed in seconds
+
+### Full Code
+```python anyparser_extract_tables.py
+from any_parser import AnyParser
+
+ap = AnyParser(api_key="...")
+
+local_file_path = "/path/to/your/file"
+
+pii_result, total_time = ap.extract_tables(local_file_path)
+```
+
+## Full Notebook Examples
+
+Check out these notebooks for more detailed examples of using both sync and async AnyParser.
+
+<CardGroup cols={2}>
+  <Card
+    title="AnyParser Sync Example"
+    icon="bolt-lightning"
+    href="https://github.com/CambioML/any-parser/blob/main/examples/pdf_to_key_value.ipynb"
+  >
+    Extracting key-values from a fake W2 document.
+  </Card>
+  <Card
+    title="AnyParser Async Example"
+    icon="rotate"
+    href="https://github.com/CambioML/any-parser/blob/main/examples/async_pdf_to_key_value.ipynb"
+  >
+    Extracting key-values from a fake W2 document.
+  </Card>
+</CardGroup>
+

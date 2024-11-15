@@ -11,14 +11,14 @@ Refer to the [Quickstart guide](/quickstart/#setup) to install the AnyParser SDK
 
 First, set up your `AnyParser` client.
 
-```python anyparser_key_value.py
+```python anyparser_extract_key_value.py
 from any_parser import AnyParser
 
 ap = AnyParser(api_key="...")
 ```
 
 Next, you'll need to create your `extract_instruction`. This is a dictionary of the form `{"key": "key description"}` where the key is the name of the key to extract and the key description is a description of that key.
-```python anyparser_key_value.py
+```python anyparser_extract_key_value.py
 extract_instruction = {
                 "social_security_number": "the social security number of the employee",
                 "ein": "the employer identification number",
@@ -28,7 +28,7 @@ Finally, use the `extract_key_value` method, passing in the following:
 - `file_path` (str): the path to the local file
 - `extract_instruction` (dict): keys to extract and their descriptions
 
-```python anyparser_key_value.py
+```python anyparser_extract_key_value.py
 key_value_result, total_time = ap.extract_key_value(local_file_path, extract_instruction)
 ```
 
@@ -37,7 +37,7 @@ This will return two things:
 - `total_time` (str): the time elapsed in seconds
 
 ### Full Code
-```python anyparser_key_value.py
+```python anyparser_extract_key_value.py
 from any_parser import AnyParser
 
 ap = AnyParser(api_key="...")
