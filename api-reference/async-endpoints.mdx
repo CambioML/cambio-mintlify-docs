@@ -20,8 +20,13 @@ This endpoint is used to upload a file with a specified `process_type` and get a
 You can specify the following for the `process_type`:
 | process_type        | Description                                       |
 |-----------------|---------------------------------------------------|
-| `file` | This is the Default. It parses the full content from a file. This has the same functionality as the [full-content-parse](/sdk-reference/full-content-parse) in the SDK |
-| `json` | This extracts key-value pairs from the document. This has the same functionality as the [key-value extraction](/sdk-reference/key-value-extraction) in the SDK |
+| `parse` | This is the Default. It parses the full content from a file. This has the same functionality as the [full-content-parse.parse](/sdk-reference/parse) in the SDK |
+| `parse_with_ocr` | It parses the full content from a file with OCR detection and correction. This has the same functionality as the [full-content-parse.parse_with_ocr](/sdk-reference/parse) in the SDK |
+| `parse_with_layout` | It parses the full content from a file with layout structure analysis. This has the same functionality as the [full-content-parse.parse_with_layout](/sdk-reference/parse) in the SDK |
+| `extract_pii` | This extracts PII from the document. This has the same functionality as the [Extract PII](/sdk-reference/extract_pii) in the SDK |
+| `extract_tables` | This extracts tables from the document. This has the same functionality as the [Extract Tables](/sdk-reference/extract_tables) in the SDK |
+| `extract_key_value` | This extracts key-value pairs from the document. This has the same functionality as the [Extract Key-Value](/sdk-reference/extract_key_value) in the SDK |
+| `extract_resume_key_value` | This extracts the candidate's information from the resume. This has the same functionality as the [Extract Resume Key-Value](/sdk-reference/extract_resume_key_value) in the SDK |
 
 For more details on how to call this endpoint see the [Async Upload Endpoint Example](/api-reference/endpoint/async-upload).
 

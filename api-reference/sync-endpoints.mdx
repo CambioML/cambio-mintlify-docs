@@ -9,8 +9,11 @@ The `AnyParser` API has synchronous endpoints for its parsing and extraction fea
 Here's an overview of the endpoints:
 | Endpoint        | Description                                       |
 |-----------------|---------------------------------------------------|
-| [/extract](/api-reference/endpoint/extract)      | Parses the entire content of a file into markdown |
-| [/json/extract](/api-reference/endpoint/json-extract)  | Extracts key-value information from a file        |
+| [/parse](/api-reference/endpoint/parse)      | Parses the entire content of a file into markdown |
+| [/extract_pii](/api-reference/endpoint/extract_pii)  | Extracts Personally Identifiable Information (PII) from a file        |
+| [/extract_tables](/api-reference/endpoint/extract_tables)  | Extracts tables from a file        |
+| [/extract_key_value](/api-reference/endpoint/extract_key_value)  | Extracts key-value information from a file        |
+| [/extract_resume_key_value](/api-reference/endpoint/extract_resume_key_value)  | Extracts candidate's information from a resume        |
 | [/query](/api-reference/endpoint/query)  | Query to see how many pages you have left for your api key      |
 
 
