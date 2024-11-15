@@ -17,13 +17,14 @@ The SDK processes the following types of files:
 The SDK has the following features:
 - Full content parsing
 - Key-value extraction
+- Tables extraction
 
 ### Sync vs Async API
 - **Sync API**: This is a blocking API that will return the results of the extraction. It will time out after 30 seconds.
-    - [Example Notebook](https://github.com/CambioML/any-parser/blob/main/examples/pdf_to_markdown.ipynb)
+    - [Example Notebook](https://github.com/CambioML/any-parser/blob/main/examples/parse_pdf.ipynb)
 
 - **Async API**: This is an asynchronous API that will return a file ID. You can use this file ID to fetch the results of the extraction at a later time.
-    - [Example Notebook](https://github.com/CambioML/any-parser/blob/main/examples/async_pdf_to_markdown.ipynb)
+    - [Example Notebook](https://github.com/CambioML/any-parser/blob/main/examples/async_parse_pdf.ipynb)
 
 ### API
 If you'd prefer to call the RESTful API directly, please refer to the [API Reference](/api-reference/)

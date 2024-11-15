@@ -1,0 +1,71 @@
+---
+title: 'Extract Resume Key-Value'
+description: 'Extract key-value information from resume'
+---
+
+## Overview
+Using `AnyParser`, you can extract key information from resume, including
+
+- Personally Identifiable Information (PII)
+- Personal Information
+- Education
+- Work Experience
+- Projects
+- Skills
+- Certifications
+
+## Setup
+Refer to the [Quickstart guide](/quickstart/#setup) to install the AnyParser SDK and get your api key.
+
+First, set up your `AnyParser` client.
+
+```python anyparser_extract_resume_key_value.py
+from any_parser import AnyParser
+
+ap = AnyParser(api_key="...")
+```
+
+Then, use the `extract_resume_key_value` method, passing in the following:
+- `file_path` (str): the path to the local file
+
+```python anyparser_extract_resume_key_value.py
+resume_result, total_time = ap.extract_resume_key_value(local_file_path)
+```
+
+This will return two things:
+- `resume_result` (dict): Dictionary with the keys in "PII", "Personal_Information","Education","Work_Experience","Projects","Skills", and "Certifications",
+and the values extracted from the document
+- `total_time` (str): the time elapsed in seconds
+
+### Full Code
+```python anyparser_extract_resume_key_value.py
+from any_parser import AnyParser
+
+ap = AnyParser(api_key="...")
+
+local_file_path = "/path/to/your/file"
+
+key_value_result, total_time = ap.extract_resume_key_value(local_file_path)
+```
+
+## Full Notebook Examples
+
+Check out these notebooks for more detailed examples of using both sync and async AnyParser.
+
+<CardGroup cols={2}>
+  <Card
+    title="AnyParser Sync Extract Resume Key Value Example"
+    icon="bolt-lightning"
+    href="https://github.com/CambioML/any-parser/blob/main/examples/extract_resume_key_value.ipynb"
+  >
+    Extracting key-values from a fake W2 document.
+  </Card>
+  <Card
+    title="AnyParser Async Extract Resume Key Value Example"
+    icon="rotate"
+    href="https://github.com/CambioML/any-parser/blob/main/examples/async_extract_resume_key_value.ipynb"
+  >
+    Extracting key-values from a fake W2 document.
+  </Card>
+</CardGroup>
+

@@ -1,0 +1,71 @@
+---
+title: 'Extract PII'
+description: 'Extract Personally Identifiable Information (PII) information from your documents'
+---
+
+## Overview
+Using `AnyParser`, you can extract PII information from your documents, including
+
+- Name
+- Phone Number
+- Address
+- Email Address
+- Linkedin URL
+- Github URL
+- Summary
+
+## Setup
+Refer to the [Quickstart guide](/quickstart/#setup) to install the AnyParser SDK and get your api key.
+
+First, set up your `AnyParser` client.
+
+```python anyparser_pii.py
+from any_parser import AnyParser
+
+ap = AnyParser(api_key="...")
+```
+
+Then, use the `anyparser_pii` method, passing in the following:
+- `file_path` (str): the path to the local file
+
+```python anyparser_extract_pii.py
+pii_result, total_time = ap.extract_pii(local_file_path)
+```
+
+This will return two things:
+- `pii_result` (dict): Dictionary with the keys corresponding to PII types,
+and the values extracted from the document
+- `total_time` (str): the time elapsed in seconds
+
+### Full Code
+```python anyparser_extract_pii.py
+from any_parser import AnyParser
+
+ap = AnyParser(api_key="...")
+
+local_file_path = "/path/to/your/file"
+
+pii_result, total_time = ap.extract_pii(local_file_path)
+```
+
+## Full Notebook Examples
+
+Check out these notebooks for more detailed examples of using both sync and async AnyParser.
+
+<CardGroup cols={2}>
+  <Card
+    title="AnyParser Sync Extract PII Example"
+    icon="bolt-lightning"
+    href="https://github.com/CambioML/any-parser/blob/main/examples/extract_pii.ipynb"
+  >
+    Extracting key-values from a fake W2 document.
+  </Card>
+  <Card
+    title="AnyParser Async Extract PII Example"
+    icon="rotate"
+    href="https://github.com/CambioML/any-parser/blob/main/examples/async_extract_pii.ipynb"
+  >
+    Extracting key-values from a fake W2 document.
+  </Card>
+</CardGroup>
+
