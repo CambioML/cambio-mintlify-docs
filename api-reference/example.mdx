@@ -15,15 +15,15 @@ from typing import Tuple
 
 import requests
 
-URL = "https://public-api.cambio-ai.com/extract"
+URL = "https://public-api.cambio-ai.com/parse"
 TIMEOUT = 30
 
 
-class AnyParserRT:
-    """AnyParser RT: Real-time parser for any data format."""
+class AnyParser:
+    """AnyParser: Real-time parser for any data format."""
 
     def __init__(self, api_key: str, url: str = URL) -> None:
-        """Initialize the AnyParser RT object.
+        """Initialize the AnyParser object.
 
         Args:
             api_key (str): The API key for the AnyParser
@@ -35,14 +35,14 @@ class AnyParserRT:
         self._url = url
         self._api_key = api_key
 
-    def extract(self, file_path: str) -> Tuple[str, str]:
-        """Extract data in real-time.
+    def parse(self, file_path: str) -> Tuple[str, str]:
+        """Parse data in real-time.
 
         Args:
             file_path (str): The path to the file to be parsed.
 
         Returns:
-            tuple(str, str): The extracted data and the time taken.
+            tuple(str, str): The parsed data and the time taken.
         """
         file_extension = Path(file_path).suffix.lower().lstrip(".")
 
@@ -50,7 +50,7 @@ class AnyParserRT:
         if not Path(file_path).is_file():
             return "Error: File does not exist", "File does not exist"
 
-        if file_extension in ["pdf", "docx"]:
+        if file_extension in ["pdf", "docx", "pptx", "png", "jpg", "jpeg"]:
             # Encode the PDF file content in base64
             with open(file_path, "rb") as file:
                 encoded_file = base64.b64encode(file.read()).decode("utf-8")
@@ -94,13 +94,13 @@ class AnyParserRT:
             return f"Error: {response.status_code}", f"Response: {response.text}"
 ```
 
-Here's an implementation of that custom `AnyParserRT` class:
+Here's an implementation of that custom `AnyParser` class:
 ```python
 from IPython.display import display, Markdown
 
-ap_rt = AnyParserRT(api_key="...")
+ap = AnyParser(api_key="...")
 
-md_output, total_time = ap_rt.extract(file_path="...")
+md_output, total_time = ap.parse(file_path="...")
 
 display(Markdown(md_output))
 ```

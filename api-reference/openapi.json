@@ -28,7 +28,7 @@
     }
   ],
   "paths": {
-    "/extract": {
+    "/parse": {
       "post": {
         "summary": "Parse a file and return content in markdown format",
         "description": "This API endpoint parses the uploaded file and returns the content in markdown format.",
@@ -92,7 +92,7 @@
         ]
       }
     },
-    "/json/extract": {
+    "/extract_key_value": {
       "post": {
         "summary": "Extract Key-value pairs from a file",
         "description": "This API endpoint extracts key-value pairs from the uploaded file and returns the content in json format.",
@@ -112,7 +112,7 @@
                     "description": "The type of the file. Supported values are 'pdf' and 'docx'.",
                     "enum": ["pdf", "docx"]
                   },
-                  "instruction_args": {
+                  "extract_args": {
                     "type": "object",
                     "description": "The key-value extraction instructions.",
                     "properties": {
@@ -128,7 +128,7 @@
                     "required": ["extract_instruction"]
                   }
                 },
-                "required": ["file_content", "file_type", "instruction_args"]
+                "required": ["file_content", "file_type", "extract_args"]
               }
             }
           }
@@ -144,6 +144,198 @@
                     "json": {
                       "type": "object",
                       "description": "The extracted key-value pairs in json format."
+                    },
+                    "pageCount": {
+                      "type": "integer",
+                      "description": "The number of pages processed."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded. Only 1 request per second is allowed."
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Your API key."
+          }
+        ]
+      }
+    },
+    "/extract_resume_key_value": {
+      "post": {
+        "summary": "Extract Candidate's Information from a resume",
+        "description": "This API endpoint extracts key-value pairs from the uploaded resume and returns the content in json format.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file_content": {
+                    "type": "string",
+                    "description": "The base64 encoded content of the file to be parsed."
+                  },
+                  "file_type": {
+                    "type": "string",
+                    "description": "The type of the file. Supported values are 'pdf' and 'docx'.",
+                    "enum": ["pdf", "docx"]
+                  }
+                },
+                "required": ["file_content", "file_type"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Resume key-value extracted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "json": {
+                      "type": "object",
+                      "description": "The extracted resume information in json format."
+                    },
+                    "pageCount": {
+                      "type": "integer",
+                      "description": "The number of pages processed."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded. Only 1 request per second is allowed."
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Your API key."
+          }
+        ]
+      }
+    },
+    "/extract_tables": {
+      "post": {
+        "summary": "Extract raw tables from a file",
+        "description": "This API endpoint extracts tables from the uploaded file and returns the tables in HTML format.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file_content": {
+                    "type": "string",
+                    "description": "The base64 encoded content of the file to be parsed."
+                  },
+                  "file_type": {
+                    "type": "string",
+                    "description": "The type of the file. Supported values are 'pdf' and 'docx'.",
+                    "enum": ["pdf", "docx"]
+                  }
+                },
+                "required": ["file_content", "file_type"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tables extracted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "json": {
+                      "type": "object",
+                      "description": "The extracted tables in HTML format."
+                    },
+                    "pageCount": {
+                      "type": "integer",
+                      "description": "The number of pages processed."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded. Only 1 request per second is allowed."
+          }
+        },
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Your API key."
+          }
+        ]
+      }
+    },
+    "/extract_pii": {
+      "post": {
+        "summary": "Extract Personally Identifiable Information (PII) from a file",
+        "description": "This API endpoint extracts PII from the uploaded file and returns the content in json format.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file_content": {
+                    "type": "string",
+                    "description": "The base64 encoded content of the file to be parsed."
+                  },
+                  "file_type": {
+                    "type": "string",
+                    "description": "The type of the file. Supported values are 'pdf' and 'docx'.",
+                    "enum": ["pdf", "docx"]
+                  }
+                },
+                "required": ["file_content", "file_type"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "PII extracted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "json": {
+                      "type": "object",
+                      "description": "The extracted PII in json format."
                     },
                     "pageCount": {
                       "type": "integer",

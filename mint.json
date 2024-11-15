@@ -78,8 +78,11 @@
     {
       "group": "Sync Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/extract",
-        "api-reference/endpoint/json-extract",
+        "api-reference/endpoint/parse",
+        "api-reference/endpoint/extract_key_value",
+        "api-reference/endpoint/extract_resume_key_value",
+        "api-reference/endpoint/extract_tables",
+        "api-reference/endpoint/extract_pii",
         "api-reference/endpoint/query"
       ]
     },
