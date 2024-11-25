@@ -1,10 +1,10 @@
 ---
 title: 'Extract PII'
-description: 'Extract Personally Identifiable Information (PII) information from your documents'
+description: 'Extract Personally Identifiable Information (PII) from your documents'
 ---
 
 ## Overview
-Using `AnyParser`, you can extract PII information from your documents, including
+Using `AnyParser`, you can extract PII from your documents, including
 
 - Name
 - Phone Number
@@ -29,7 +29,7 @@ Then, use the `anyparser_pii` method, passing in the following:
 - `file_path` (str): the path to the local file
 
 ```python anyparser_extract_pii.py
-pii_result, total_time = ap.extract_pii(local_file_path)
+pii_result, total_time = ap.extract_pii(file_path="/path/to/your/file")
 ```
 
 This will return two things:
@@ -47,6 +47,10 @@ local_file_path = "/path/to/your/file"
 
 pii_result, total_time = ap.extract_pii(local_file_path)
 ```
+
+## Output
+
+A dictionary containing Personally Identifiable Information (PII).
 
 ## Full Notebook Examples
 

@@ -29,7 +29,7 @@ Finally, use the `extract_key_value` method, passing in the following:
 - `extract_instruction` (dict): keys to extract and their descriptions
 
 ```python anyparser_extract_key_value.py
-key_value_result, total_time = ap.extract_key_value(local_file_path, extract_instruction)
+key_value_result, total_time = ap.extract_key_value(file_path="/path/to/your/file", extract_instruction)
 ```
 
 This will return two things:
@@ -48,8 +48,12 @@ extract_instruction = {
                 "ein": "the employer identification number",
             }
 
-key_value_result, total_time = ap.extract_key_value(local_file_path, extract_instruction)
+key_value_result, total_time = ap.extract_key_value(file_path="/path/to/your/file", extract_instruction)
 ```
+
+## Output
+
+A dictionary where the keys are the same as those in the input dictionary, and the values are the corresponding extracted results.
 
 ## Full Notebook Examples
 

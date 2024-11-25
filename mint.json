@@ -61,6 +61,8 @@
       "pages": [
         "sdk-reference/introduction",
         "sdk-reference/parse",
+        "sdk-reference/parse_with_ocr",
+        "sdk-reference/parse_with_layout",
         "sdk-reference/extract_key_value",
         "sdk-reference/extract_resume_key_value",
         "sdk-reference/extract_pii",

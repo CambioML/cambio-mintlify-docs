@@ -1,0 +1,43 @@
+---
+title: 'Parse With Layout'
+description: 'Parse the full content from your documents into markdown format.'
+---
+
+## Overview
+Using `AnyParser`, you can parse the full content from your documents into markdown. 
+The `Parse with Layout` model first analyzes the layout information of the file,
+then processes each element separately using specialized models tailored for different content types.
+
+## Setup
+Refer to the [Quickstart guide](/quickstart/#setup) to install the AnyParser SDK and get your api key.
+
+Next, set up your `AnyParser` sync or async client.
+
+```python anyparser_async.py
+from any_parser import AnyParser
+
+ap = AnyParser(api_key="...")
+# start the parsing request
+file_id = ap.async_parse_with_layout(file_path="/path/to/your/file")
+# fetch results (5s polling up to 60s)
+markdown_string = ap.async_fetch(file_id, sync=True, sync_timeout=60, sync_interval=5)
+```
+
+## Output
+
+A string containing the markdown representation of the given file.
+
+## Full Notebook Examples
+
+Check out these notebooks for more detailed examples of using AnyParser BASE and PRO models:
+- [AnyParser Async API](https://github.com/CambioML/any-parser/blob/main/examples/async_parse_with_layout.ipynb): Parse longer documents (which may take longer than 30 seconds).
+
+<CardGroup cols={1}>
+  <Card
+    title="AnyParser Async Parse Example"
+    icon="rotate"
+    href="https://github.com/CambioML/any-parser/blob/main/examples/async_parse_with_layout.ipynb"
+  >
+    Extracting content from a table of contents.
+  </Card>
+</CardGroup>
