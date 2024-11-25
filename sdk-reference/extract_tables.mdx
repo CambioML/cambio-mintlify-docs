@@ -35,10 +35,12 @@ from any_parser import AnyParser
 
 ap = AnyParser(api_key="...")
 
-local_file_path = "/path/to/your/file"
-
-pii_result, total_time = ap.extract_tables(local_file_path)
+table_result, total_time = ap.extract_tables(file_path="/path/to/your/file")
 ```
+
+## Output
+
+A string containing all the tables in HTML format. 
 
 ## Full Notebook Examples
 

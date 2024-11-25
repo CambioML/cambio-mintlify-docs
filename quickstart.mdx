@@ -35,7 +35,7 @@ from any_parser import AnyParser
 
 ap = AnyParser(api_key="...")
 
-md_output, total_time = ap.extract(file_path="./data/test.pdf")
+md_output, total_time = ap.extract(file_path="/path/to/your/file")
 ```
 
 ```python anyparser_async.py
@@ -43,7 +43,7 @@ from any_parser import AnyParser
 
 ap = AnyParser(api_key="...")
 
-file_id = ap.async_extract(file_path="./data/test.pdf")
+file_id = ap.async_extract(file_path="/path/to/your/file")
 
 md = ap.async_fetch(file_id=file_id)
 ```
